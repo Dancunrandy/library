@@ -1,21 +1,27 @@
-<h1>Available Books</h1>
+<h1 class="text-3xl font-bold text-center text-gray-800 my-6">Available Books</h1>
 
-<table>
+<table class="w-full border border-gray-300 shadow-lg rounded-lg">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>ISBN</th>
-      <th>Status</th>
+    <tr class="bg-blue-600 text-white text-left">
+      <th class="p-3">Title</th>
+      <th class="p-3">Author</th>
+      <th class="p-3">ISBN</th>
+      <th class="p-3">Status</th>
     </tr>
   </thead>
   <tbody>
     <% @books.each do |book| %>
-      <tr>
-        <td><%= link_to book.title, book %></td>
-        <td><%= book.author %></td>
-        <td><%= book.isbn %></td>
-        <td><%= book.available? ? "Available" : "Borrowed" %></td>
+      <tr class="bg-white border-b hover:bg-gray-100">
+        <td class="p-3">
+          <%= link_to book.title, book, class: "text-blue-600 hover:underline" %>
+        </td>
+        <td class="p-3"><%= book.author %></td>
+        <td class="p-3"><%= book.isbn %></td>
+        <td class="p-3">
+          <span class="px-2 py-1 rounded text-white <%= book.available? ? 'bg-green-500' : 'bg-red-500' %>">
+            <%= book.available? ? "Available" : "Borrowed" %>
+          </span>
+        </td>
       </tr>
     <% end %>
   </tbody>

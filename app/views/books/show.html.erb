@@ -1,10 +1,23 @@
-<h1><%= @book.title %></h1>
-<p><strong>Author:</strong> <%= @book.author %></p>
-<p><strong>ISBN:</strong> <%= @book.isbn %></p>
-<p><strong>Status:</strong> <%= @book.available? ? "Available" : "Borrowed" %></p>
+<div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
+  <h1 class="text-3xl font-bold text-gray-800 mb-4"><%= @book.title %></h1>
 
-<% if @book.available? %>
-  <%= button_to "Borrow", borrowings_path(book_id: @book.id), method: :post %>
-<% end %>
+  <p class="text-lg text-gray-700"><strong>Author:</strong> <%= @book.author %></p>
+  <p class="text-lg text-gray-700"><strong>ISBN:</strong> <%= @book.isbn %></p>
 
-<%= link_to "Back to Books", books_path %>
+  <p class="text-lg mt-3">
+    <strong>Status:</strong> 
+    <span class="px-2 py-1 rounded text-white <%= @book.available? ? 'bg-green-500' : 'bg-red-500' %>">
+      <%= @book.available? ? "Available" : "Borrowed" %>
+    </span>
+  </p>
+
+  <% if @book.available? %>
+    <div class="mt-6">
+      <%= button_to "Borrow", borrowings_path(book_id: @book.id), method: :post, class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+    </div>
+  <% end %>
+
+  <div class="mt-4">
+    <%= link_to "Back to Books", books_path, class: "text-blue-600 hover:underline" %>
+  </div>
+</div>
