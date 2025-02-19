@@ -1,25 +1,11 @@
-# README
+# Book Lending Library
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
+1. Clone the repository.
+2. Run `bundle install`.
+3. Run `rails db:migrate`.
+4. Start the server with `rails server`. and 
+5. Test it manually by signup/login, borrow a book, return,click profile to see borrowed books, logout, browse available books and try to borrow while loggedout
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# libra
+## Running Tests
+Run `rails test` to execute all tests.
