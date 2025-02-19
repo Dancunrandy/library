@@ -1,13 +1,5 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user: one
-  book: one
-  due_date: 2025-02-19
-  returned_at: 2025-02-19 11:47:52
-
-two:
-  user: two
-  book: two
-  due_date: 2025-02-19
-  returned_at: 2025-02-19 11:47:52
+borrowing_one:
+  user: user_one
+  book: book_one
+  due_date: <%= 2.weeks.from_now %> # 2 weeks from now
+  

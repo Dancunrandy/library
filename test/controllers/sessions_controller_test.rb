@@ -1,18 +1,30 @@
-require "test_helper"
+require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    @user = users(:one)
+  end
+
   test "should get new" do
-    get sessions_new_url
+    get login_path
     assert_response :success
   end
 
-  test "should get create" do
-    get sessions_create_url
-    assert_response :success
+  test "should create session" do
+    post login_path, params: { session: { email: @user.email, password: 'password' } }
+    assert_redirected_to @user
+    assert is_logged_in?
   end
 
-  test "should get destroy" do
-    get sessions_destroy_url
-    assert_response :success
+  test "should not create session with invalid information" do
+    post login_path, params: { session: { email: @user.email, password: 'wrong_password' } }
+    assert_template 'sessions/new'
+    assert_not flash.empty?
+  end
+
+  test "should destroy session" do
+    delete logout_path
+    assert_redirected_to root_url
+    assert_not is_logged_in?
   end
 end

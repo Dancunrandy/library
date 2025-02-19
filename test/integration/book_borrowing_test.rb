@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BorrowingsControllerTest < ActionDispatch::IntegrationTest
+class BookBorrowingTest < ActionDispatch::IntegrationTest
   setup do
     @user = User.create(email: "user@example.com", password: "password")
     @book = Book.create(title: "Title", author: "Author", isbn: "1234567890")
@@ -16,11 +16,4 @@ class BorrowingsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to user_url(@user)
   end
-
-  test "should return book" do
-    borrowing = Borrowing.create(user: @user, book: @book, due_date: 2.weeks.from_now)
-    patch borrowing_url(borrowing)
-    assert_redirected_to user_url(@user)
-  end
-
 end

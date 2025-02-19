@@ -1,8 +1,13 @@
-require "test_helper"
+require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get users_show_url
+  setup do
+    @user = User.create(email: "user@example.com", password: "password")
+    sign_in @user
+  end
+
+  test "should get index" do
+    get users_url
     assert_response :success
   end
 end
