@@ -16,7 +16,7 @@ A simple book lending library application built with Ruby on Rails 8.
 2. Run `bundle install`.
 3. Run `rails db:migrate`.
 4. Start the server with `rails server`. and 
-5. Visit http://localhost:3000 in your browser.
+5. Visit  http://127.0.0.1:3000 in your browser.
 
 
 ## Running Tests
