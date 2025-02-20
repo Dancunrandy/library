@@ -11,12 +11,16 @@ A simple book lending library application built with Ruby on Rails 8.
 ## Setup
 1. . Clone the repository:
    ```bash
-   git clone https://github.com/Dancunrandy/library.git
+   git clone https://github.com/Dancunrandy/library
    cd library
 2. Run `bundle install`.
-3. Run `rails db:migrate`.
-4. Start the server with `rails server`. and 
-5. Visit  http://127.0.0.1:3000 in your browser.
+3. Run `bundle add tailwindcss-rails`,
+       `rails tailwindcss:install`.
+
+4. Run `rails db:migrate`.
+5. Run `rails db:seed`
+6. Start the server with `rails server`. and 
+7. Visit  http://127.0.0.1:3000 in your browser.
 
 
 ## Running Tests
